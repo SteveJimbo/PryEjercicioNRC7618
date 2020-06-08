@@ -2,9 +2,12 @@ package com.jimbo.ejercicio.models.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="profesores")
@@ -58,5 +61,6 @@ public class Profesor extends Persona implements Serializable{
 		this.tiempoDedicacion = tiempoDedicacion;
 	}
 	
-	
+	@OneToMany(mappedBy="docente", fetch=FetchType.LAZY)
+	private List<Aula> aulas;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: frgHead"></head>
+<body>
+<div th:replace="layout :: frgNavigation"></div>
+
+<div class="container">
+	<br/>
+	<h3 th:text="${title}"></h3>
+	<hr/>
+	
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>C&eacute;dula</th>
+				<th>Fec. Nacimiento</th>
+				<th><a class="btn btn-sm btn-success" th:href="@{/alumno/create}">&nbsp;Nuevo</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="a : ${alumnos}">
+				<td th:text="${a.nombre}"></td>
+				<td th:text="${a.apellido}"></td>
+				<td th:text="${a.cedula}"></td>
+				<td th:text="${a.fechaNacimiento}"></td>
+				<td>
+					<a class="btn btn-sm btn-warning" th:href="@{/alumno/update}">&nbsp;Actualizar</a>
+					<a class="btn btn-sm btn-warning" th:href="@{/alumno/retrieve}">&nbsp;Consultar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+<div th:replace="layout :: frgFooter"></div>
+</body>
+</html>

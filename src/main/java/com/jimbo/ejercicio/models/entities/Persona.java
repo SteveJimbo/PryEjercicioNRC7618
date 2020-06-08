@@ -15,7 +15,7 @@ public abstract class Persona {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name="idpersona")
+	@Column(name="pk_persona")
 	private Integer idpersona;
 	
 	@Column(name="nombre")
@@ -35,6 +35,12 @@ public abstract class Persona {
 	
 	@Column(name="sexo")
 	private String sexo;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="telefono")
+	private String telefono;
 	
 	public Persona() {
 		super();
@@ -86,6 +92,22 @@ public abstract class Persona {
 	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 	
 	
